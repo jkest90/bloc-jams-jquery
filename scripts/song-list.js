@@ -35,6 +35,7 @@ end forEach
 {
 
     album.songs.forEach((song, index) => {
+        // for each song in the albums array, create a property called element to represent each song as an html string.
         song.element = $(`
             <tr>
                 <td>
@@ -51,6 +52,7 @@ end forEach
 
         song.element.on('click', event => {
             player.playPause(song);
+            $('button#play-pause').attr('playState', player.playState);
         });
 
         $('#song-list').append(song.element);
