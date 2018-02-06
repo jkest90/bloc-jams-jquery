@@ -8,14 +8,17 @@ class Player {
         this.playState = 'stopped';
         this.volume = 80;
         //soundObject instantiates a new buzz.sound object using the soundFileUrl property of this.currentlyPlaying.
+        // buzz.sound is a from the Buzz! library.
         this.soundObject = new buzz.sound(this.currentlyPlaying.soundFileUrl);
     }
 
     getDuration() {
+        // get total duration of audio file (in seconds)
         return this.soundObject.getDuration();
     }
 
     getTime() {
+        // get current time of audio file (in seconds)
         return this.soundObject.getTime();
     }
 
@@ -60,9 +63,7 @@ class Player {
     }
 
     skipTo(percent) {
-        if (this.playState !== 'playing') {
-            return
-        }
+        if (this.playState !== 'playing') { return; }
         this.soundObject.setTime((percent / 100) * this.soundObject.getDuration());
     }
 
