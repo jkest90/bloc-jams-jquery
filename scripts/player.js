@@ -71,6 +71,19 @@ class Player {
         this.volume = percent;
         this.soundObject.setVolume(percent);
     }
+
+    // -- Assignment 2.20: Extra Credit 
+    prettyTime(timeInSeconds) {
+        const minutes = Math.floor(timeInSeconds / 60);
+        const seconds = Math.floor(timeInSeconds % 60);
+        let minSec;
+        if (seconds < 10) {
+             minSec = minutes + ':0' + seconds;
+        } else {
+             minSec = minutes + ':' + seconds;
+        }
+        return minSec;
+    }
 }
 
 const player = new Player();
